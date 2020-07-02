@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: kafkaConnectSourceJDBC
+  name: kafkaconnectsourcejdbc
   labels:
-    app: kafkaConnectJDBC
+    app: kafkaconnectsourcejdbc
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: kafkaConnectJDBC
+      app: kafkaconnectsourcejdbc
   template:
     metadata:
       labels:
-        app: kafkaConnectJDBC
+        app: kafkaconnectsourcejdbc
     spec:
       containers:
-      - name: kafkaConnectSourceJDBC
+      - name: kafkaconnectsourcejdbc
         image: saulcalla/kafka-connect-source:latest
         env:
         - name: CONNECT_BOOTSTRAP_SERVERS
