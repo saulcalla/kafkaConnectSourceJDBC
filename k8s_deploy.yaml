@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kafkaConnectSourceJDBC
+  labels:
+    app: kafkaConnectJDBC
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kafkaConnectJDBC
+  template:
+    metadata:
+      labels:
+        app: kafkaConnectJDBC
+    spec:
+      containers:
+      - name: kafkaConnectSourceJDBC
+        image: saulcalla/kafka-connect-source:latest
+        env:
+        - name: CONNECT_BOOTSTRAP_SERVERS
+          value: 'pkc-419q3.us-east4.gcp.confluent.cloud:9092'
+        - name: SASL_JAAS_CONFIG
+          value: 'org.apache.kafka.common.security.plain.PlainLoginModule   required username="BK7FTHVPHDR6VHUD"   password="OgBhS5FtNk74yLbZS+a4/Tk5xXCvWvvCfUhvleiw06wxr1oy9u91OFvo4i5cwrTf";'
+        - name: CONNECT_SASL_JAAS_CONFIG
+          value: 'org.apache.kafka.common.security.plain.PlainLoginModule   required username="BK7FTHVPHDR6VHUD"   password="OgBhS5FtNk74yLbZS+a4/Tk5xXCvWvvCfUhvleiw06wxr1oy9u91OFvo4i5cwrTf";'
+        - name: CONNECT_PRODUCER_SASL_JAAS_CONFIG
+          value: 'org.apache.kafka.common.security.plain.PlainLoginModule   required username="BK7FTHVPHDR6VHUD"   password="OgBhS5FtNk74yLbZS+a4/Tk5xXCvWvvCfUhvleiw06wxr1oy9u91OFvo4i5cwrTf";'
+        - name: CONNECT_PRODUCER_CONFLUENT_MONITORING_INTERCEPTOR_SASL_JAAS_CONFIG
+          value: 'org.apache.kafka.common.security.plain.PlainLoginModule   required username="BK7FTHVPHDR6VHUD"   password="OgBhS5FtNk74yLbZS+a4/Tk5xXCvWvvCfUhvleiw06wxr1oy9u91OFvo4i5cwrTf";'
+        - name: CONNECT_CONSUMER_SASL_JAAS_CONFIG
+          value: 'org.apache.kafka.common.security.plain.PlainLoginModule   required username="BK7FTHVPHDR6VHUD"   password="OgBhS5FtNk74yLbZS+a4/Tk5xXCvWvvCfUhvleiw06wxr1oy9u91OFvo4i5cwrTf";'
+        - name: CONNECT_CONSUMER_CONFLUENT_MONITORING_INTERCEPTOR_SASL_JAAS_CONFIG
+          value: 'org.apache.kafka.common.security.plain.PlainLoginModule   required username="BK7FTHVPHDR6VHUD"   password="OgBhS5FtNk74yLbZS+a4/Tk5xXCvWvvCfUhvleiw06wxr1oy9u91OFvo4i5cwrTf";'
+        - name: SASL_JAAS_CONFIG_PROPERTY_FORMAT
+          value: 'org.apache.kafka.common.security.plain.PlainLoginModule   required username="BK7FTHVPHDR6VHUD"   password="OgBhS5FtNk74yLbZS+a4/Tk5xXCvWvvCfUhvleiw06wxr1oy9u91OFvo4i5cwrTf";'
+        - name: CONNECT_VALUE_CONVERTER_SCHEMA_REGISTRY_BASIC_AUTH_USER_INFO
+          value: 5AQX3ORUCM2FWRTL:UAKDGvgqYLGlwJ4hhRRhPJXWMDT3McUKnVV3i7PFwiqjqvdikXUhHEbdi6D1D/IT
+        - name: SCHEMA_REGISTRY_URL
+          value: https://psrc-l7opw.europe-west3.gcp.confluent.cloud
+        - name: CONNECT_VALUE_CONVERTER_SCHEMA_REGISTRY_URL
+          value: https://psrc-l7opw.europe-west3.gcp.confluent.cloud
+        - name: CLOUD_KEY
+          value: BK7FTHVPHDR6VHUD
+        - name: CLOUD_SECRET
+          value: OgBhS5FtNk74yLbZS+a4/Tk5xXCvWvvCfUhvleiw06wxr1oy9u91OFvo4i5cwrTf
