@@ -1,8 +1,6 @@
-FROM confluentinc/cp-kafka-connect-base:latest
+FROM saulcalla/kafka-connect-source:1.0.0
 
-RUN confluent-hub install --no-prompt confluentinc/kafka-connect-jdbc:latest
-
-ADD ojdbc6.jar /tmp/connect/lib/ojdbc6.jar
+ADD ak-tools-ccloud.delta /tmp/ak-tools-ccloud.delta
 
 ARG BASIC_AUTH_CREDENTIALS_SOURCE=USER_INFO
 
