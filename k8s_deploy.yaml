@@ -69,4 +69,3 @@ metadata:
 spec:
   backend:
     serviceName: kafkaconnectjdbc-service
-    servicePort: 8083
