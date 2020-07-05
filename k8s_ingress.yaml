@@ -1,6 +1,8 @@
-apiVersion: networking.k8s.io/v1beta1 kind: Ingress metadata:
-  name: kafkaconnectjdbc-ingress 
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: test-ingress
 spec:
   backend:
-    serviceName: kafkaconnectjdbc-service
+    serviceName: testsvc
     servicePort: 31486
