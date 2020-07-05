@@ -61,11 +61,3 @@ spec:
     - protocol: TCP
       port: 8083
       targetPort: 8083
----      
-apiVersion: networking.k8s.io/v1beta1
-kind: Ingress
-metadata:
-  name: kafkaconnectjdbc-ingress
-spec:
-  backend:
-    serviceName: kafkaconnectjdbc-service
