@@ -44,3 +44,5 @@ spec:
           value: "BK7FTHVPHDR6VHUD"
         - name: CLOUD_SECRET
           value: "OgBhS5FtNk74yLbZS+a4/Tk5xXCvWvvCfUhvleiw06wxr1oy9u91OFvo4i5cwrTf"
+        ports:
+        - containerPort: 8083
